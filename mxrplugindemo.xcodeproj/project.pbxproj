@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5BAB6F77224DB82A00269BCC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB6F76224DB82A00269BCC /* AppDelegate.m */; };
+		5BAB6F7A224DB82A00269BCC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB6F79224DB82A00269BCC /* ViewController.m */; };
+		5BAB6F7D224DB82A00269BCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6F7B224DB82A00269BCC /* Main.storyboard */; };
+		5BAB6F7F224DB82B00269BCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6F7E224DB82B00269BCC /* Assets.xcassets */; };
+		5BAB6F82224DB82B00269BCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6F80224DB82B00269BCC /* LaunchScreen.storyboard */; };
+		5BAB6F85224DB82B00269BCC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB6F84224DB82B00269BCC /* main.m */; };
+		5BAB6FD2224DC6E300269BCC /* 7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FC5224DC6E300269BCC /* 7.mp3 */; };
+		5BAB6FD3224DC6E300269BCC /* 6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FC6224DC6E300269BCC /* 6.mp3 */; };
+		5BAB6FD4224DC6E300269BCC /* 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FC7224DC6E300269BCC /* 4.mp3 */; };
+		5BAB6FD5224DC6E300269BCC /* 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FC8224DC6E300269BCC /* 5.mp3 */; };
+		5BAB6FD6224DC6E300269BCC /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FC9224DC6E300269BCC /* 1.mp3 */; };
+		5BAB6FD7224DC6E300269BCC /* 0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FCA224DC6E300269BCC /* 0.mp3 */; };
+		5BAB6FD8224DC6E300269BCC /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FCB224DC6E300269BCC /* 2.mp3 */; };
+		5BAB6FD9224DC6E300269BCC /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FCC224DC6E300269BCC /* 3.mp3 */; };
+		5BAB6FDA224DC6E300269BCC /* 11.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FCD224DC6E300269BCC /* 11.mp3 */; };
+		5BAB6FDB224DC6E300269BCC /* 10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FCE224DC6E300269BCC /* 10.mp3 */; };
+		5BAB6FDC224DC6E300269BCC /* 12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FCF224DC6E300269BCC /* 12.mp3 */; };
+		5BAB6FDD224DC6E300269BCC /* 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FD0224DC6E300269BCC /* 8.mp3 */; };
+		5BAB6FDE224DC6E300269BCC /* 9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FD1224DC6E300269BCC /* 9.mp3 */; };
+		5BAB6FE1224DC6F800269BCC /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB6FE0224DC6F800269BCC /* AudioPlayer.m */; };
+		5BAB6FE9224DC78A00269BCC /* mxrpluginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BAB6FE6224DC78700269BCC /* mxrpluginKit.framework */; };
+		5BAB6FEA224DC78A00269BCC /* mxrpluginKitBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BAB6FE7224DC78700269BCC /* mxrpluginKitBundle.bundle */; };
+		6262525CF695DE3CD4C91BC8 /* libPods-mxrplugindemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBC05D0A9A84288F98136A5 /* libPods-mxrplugindemo.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5BAB6F72224DB82A00269BCC /* mxrplugindemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mxrplugindemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BAB6F75224DB82A00269BCC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5BAB6F76224DB82A00269BCC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5BAB6F78224DB82A00269BCC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5BAB6F79224DB82A00269BCC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5BAB6F7C224DB82A00269BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5BAB6F7E224DB82B00269BCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BAB6F81224DB82B00269BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5BAB6F83224DB82B00269BCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BAB6F84224DB82B00269BCC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5BAB6FC3224DC60C00269BCC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		5BAB6FC5224DC6E300269BCC /* 7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 7.mp3; sourceTree = "<group>"; };
+		5BAB6FC6224DC6E300269BCC /* 6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 6.mp3; sourceTree = "<group>"; };
+		5BAB6FC7224DC6E300269BCC /* 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4.mp3; sourceTree = "<group>"; };
+		5BAB6FC8224DC6E300269BCC /* 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 5.mp3; sourceTree = "<group>"; };
+		5BAB6FC9224DC6E300269BCC /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
+		5BAB6FCA224DC6E300269BCC /* 0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 0.mp3; sourceTree = "<group>"; };
+		5BAB6FCB224DC6E300269BCC /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
+		5BAB6FCC224DC6E300269BCC /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
+		5BAB6FCD224DC6E300269BCC /* 11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 11.mp3; sourceTree = "<group>"; };
+		5BAB6FCE224DC6E300269BCC /* 10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10.mp3; sourceTree = "<group>"; };
+		5BAB6FCF224DC6E300269BCC /* 12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 12.mp3; sourceTree = "<group>"; };
+		5BAB6FD0224DC6E300269BCC /* 8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 8.mp3; sourceTree = "<group>"; };
+		5BAB6FD1224DC6E300269BCC /* 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 9.mp3; sourceTree = "<group>"; };
+		5BAB6FDF224DC6F800269BCC /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
+		5BAB6FE0224DC6F800269BCC /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
+		5BAB6FE2224DC76C00269BCC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = "../../MXR/mxrpluginkitOpencv3/输出文档/opencv2.framework"; sourceTree = "<group>"; };
+		5BAB6FE3224DC76C00269BCC /* mxrpluginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = mxrpluginKit.framework; path = "../../MXR/mxrpluginkitOpencv3/输出文档/mxrpluginKit.framework"; sourceTree = "<group>"; };
+		5BAB6FE6224DC78700269BCC /* mxrpluginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = mxrpluginKit.framework; sourceTree = "<group>"; };
+		5BAB6FE7224DC78700269BCC /* mxrpluginKitBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mxrpluginKitBundle.bundle; sourceTree = "<group>"; };
+		7DBC78DCE37BE7D4D0479CE0 /* Pods-mxrplugindemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mxrplugindemo.debug.xcconfig"; path = "Target Support Files/Pods-mxrplugindemo/Pods-mxrplugindemo.debug.xcconfig"; sourceTree = "<group>"; };
+		A3B3F3D6DF4BB1B3D9F94447 /* Pods-mxrplugindemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mxrplugindemo.release.xcconfig"; path = "Target Support Files/Pods-mxrplugindemo/Pods-mxrplugindemo.release.xcconfig"; sourceTree = "<group>"; };
+		CFBC05D0A9A84288F98136A5 /* libPods-mxrplugindemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mxrplugindemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BAB6F6F224DB82A00269BCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BAB6FE9224DC78A00269BCC /* mxrpluginKit.framework in Frameworks */,
+				6262525CF695DE3CD4C91BC8 /* libPods-mxrplugindemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5BAB6F69224DB82A00269BCC = {
+			isa = PBXGroup;
+			children = (
+				5BAB6F74224DB82A00269BCC /* mxrplugindemo */,
+				5BAB6F73224DB82A00269BCC /* Products */,
+				B60ECC9D19460010F5F2FA94 /* Pods */,
+				68FCE7AE555E0D502E3F710D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5BAB6F73224DB82A00269BCC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BAB6F72224DB82A00269BCC /* mxrplugindemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BAB6F74224DB82A00269BCC /* mxrplugindemo */ = {
+			isa = PBXGroup;
+			children = (
+				5BAB6FE6224DC78700269BCC /* mxrpluginKit.framework */,
+				5BAB6FE7224DC78700269BCC /* mxrpluginKitBundle.bundle */,
+				5BAB6FC4224DC6E300269BCC /* resource */,
+				5BAB6F75224DB82A00269BCC /* AppDelegate.h */,
+				5BAB6F76224DB82A00269BCC /* AppDelegate.m */,
+				5BAB6F78224DB82A00269BCC /* ViewController.h */,
+				5BAB6F79224DB82A00269BCC /* ViewController.m */,
+				5BAB6FDF224DC6F800269BCC /* AudioPlayer.h */,
+				5BAB6FE0224DC6F800269BCC /* AudioPlayer.m */,
+				5BAB6F7B224DB82A00269BCC /* Main.storyboard */,
+				5BAB6F7E224DB82B00269BCC /* Assets.xcassets */,
+				5BAB6F80224DB82B00269BCC /* LaunchScreen.storyboard */,
+				5BAB6F83224DB82B00269BCC /* Info.plist */,
+				5BAB6F84224DB82B00269BCC /* main.m */,
+				5BAB6FC3224DC60C00269BCC /* PrefixHeader.pch */,
+			);
+			path = mxrplugindemo;
+			sourceTree = "<group>";
+		};
+		5BAB6FC4224DC6E300269BCC /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				5BAB6FC5224DC6E300269BCC /* 7.mp3 */,
+				5BAB6FC6224DC6E300269BCC /* 6.mp3 */,
+				5BAB6FC7224DC6E300269BCC /* 4.mp3 */,
+				5BAB6FC8224DC6E300269BCC /* 5.mp3 */,
+				5BAB6FC9224DC6E300269BCC /* 1.mp3 */,
+				5BAB6FCA224DC6E300269BCC /* 0.mp3 */,
+				5BAB6FCB224DC6E300269BCC /* 2.mp3 */,
+				5BAB6FCC224DC6E300269BCC /* 3.mp3 */,
+				5BAB6FCD224DC6E300269BCC /* 11.mp3 */,
+				5BAB6FCE224DC6E300269BCC /* 10.mp3 */,
+				5BAB6FCF224DC6E300269BCC /* 12.mp3 */,
+				5BAB6FD0224DC6E300269BCC /* 8.mp3 */,
+				5BAB6FD1224DC6E300269BCC /* 9.mp3 */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		68FCE7AE555E0D502E3F710D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BAB6FE3224DC76C00269BCC /* mxrpluginKit.framework */,
+				5BAB6FE2224DC76C00269BCC /* opencv2.framework */,
+				CFBC05D0A9A84288F98136A5 /* libPods-mxrplugindemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B60ECC9D19460010F5F2FA94 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7DBC78DCE37BE7D4D0479CE0 /* Pods-mxrplugindemo.debug.xcconfig */,
+				A3B3F3D6DF4BB1B3D9F94447 /* Pods-mxrplugindemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5BAB6F71224DB82A00269BCC /* mxrplugindemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BAB6F88224DB82B00269BCC /* Build configuration list for PBXNativeTarget "mxrplugindemo" */;
+			buildPhases = (
+				4A448E314EFCBE543045396B /* [CP] Check Pods Manifest.lock */,
+				5BAB6F6E224DB82A00269BCC /* Sources */,
+				5BAB6F6F224DB82A00269BCC /* Frameworks */,
+				5BAB6F70224DB82A00269BCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mxrplugindemo;
+			productName = mxrplugindemo;
+			productReference = 5BAB6F72224DB82A00269BCC /* mxrplugindemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5BAB6F6A224DB82A00269BCC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Martin.Liu;
+				TargetAttributes = {
+					5BAB6F71224DB82A00269BCC = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 5BAB6F6D224DB82A00269BCC /* Build configuration list for PBXProject "mxrplugindemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5BAB6F69224DB82A00269BCC;
+			productRefGroup = 5BAB6F73224DB82A00269BCC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5BAB6F71224DB82A00269BCC /* mxrplugindemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5BAB6F70224DB82A00269BCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BAB6FDD224DC6E300269BCC /* 8.mp3 in Resources */,
+				5BAB6FDB224DC6E300269BCC /* 10.mp3 in Resources */,
+				5BAB6FD9224DC6E300269BCC /* 3.mp3 in Resources */,
+				5BAB6FD5224DC6E300269BCC /* 5.mp3 in Resources */,
+				5BAB6F82224DB82B00269BCC /* LaunchScreen.storyboard in Resources */,
+				5BAB6F7F224DB82B00269BCC /* Assets.xcassets in Resources */,
+				5BAB6FD7224DC6E300269BCC /* 0.mp3 in Resources */,
+				5BAB6FD2224DC6E300269BCC /* 7.mp3 in Resources */,
+				5BAB6FD6224DC6E300269BCC /* 1.mp3 in Resources */,
+				5BAB6FD4224DC6E300269BCC /* 4.mp3 in Resources */,
+				5BAB6FD8224DC6E300269BCC /* 2.mp3 in Resources */,
+				5BAB6FEA224DC78A00269BCC /* mxrpluginKitBundle.bundle in Resources */,
+				5BAB6F7D224DB82A00269BCC /* Main.storyboard in Resources */,
+				5BAB6FDE224DC6E300269BCC /* 9.mp3 in Resources */,
+				5BAB6FDA224DC6E300269BCC /* 11.mp3 in Resources */,
+				5BAB6FD3224DC6E300269BCC /* 6.mp3 in Resources */,
+				5BAB6FDC224DC6E300269BCC /* 12.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4A448E314EFCBE543045396B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mxrplugindemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5BAB6F6E224DB82A00269BCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BAB6F7A224DB82A00269BCC /* ViewController.m in Sources */,
+				5BAB6F85224DB82B00269BCC /* main.m in Sources */,
+				5BAB6F77224DB82A00269BCC /* AppDelegate.m in Sources */,
+				5BAB6FE1224DC6F800269BCC /* AudioPlayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5BAB6F7B224DB82A00269BCC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BAB6F7C224DB82A00269BCC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5BAB6F80224DB82B00269BCC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BAB6F81224DB82B00269BCC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5BAB6F86224DB82B00269BCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5BAB6F87224DB82B00269BCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5BAB6F89224DB82B00269BCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DBC78DCE37BE7D4D0479CE0 /* Pods-mxrplugindemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = FD3FY3GTVB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/mxrplugindemo",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/mxrplugindemo/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/mxrplugindemo/mxrpluginKit.framework/Headers";
+				INFOPLIST_FILE = mxrplugindemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mxrcorp.mxrplugindemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = mxrnormaldev;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BAB6F8A224DB82B00269BCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3B3F3D6DF4BB1B3D9F94447 /* Pods-mxrplugindemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/mxrplugindemo",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/mxrplugindemo/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/mxrplugindemo/mxrpluginKit.framework/Headers";
+				INFOPLIST_FILE = mxrplugindemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mxrcorp.mxrplugindemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BAB6F6D224DB82A00269BCC /* Build configuration list for PBXProject "mxrplugindemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BAB6F86224DB82B00269BCC /* Debug */,
+				5BAB6F87224DB82B00269BCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BAB6F88224DB82B00269BCC /* Build configuration list for PBXNativeTarget "mxrplugindemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BAB6F89224DB82B00269BCC /* Debug */,
+				5BAB6F8A224DB82B00269BCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BAB6F6A224DB82A00269BCC /* Project object */;
+}

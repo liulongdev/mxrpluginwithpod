@@ -1,0 +1,6 @@
+framework module mxrpluginKit {
+  umbrella header "mxrpluginKit.h"
+
+  export *
+  module * { export * }
+}
