@@ -51,6 +51,7 @@ DerivedData
 #CocoaPods
 !Podfile
 !Podfile.lock
+/Pods
 
 /[Ll]ibrary/
 /[Tt]emp/
