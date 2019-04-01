@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -171,6 +171,7 @@
 				5BAB6F6E224DB82A00269BCC /* Sources */,
 				5BAB6F6F224DB82A00269BCC /* Frameworks */,
 				5BAB6F70224DB82A00269BCC /* Resources */,
+				431F050B8A88A2C1BA8B5AC9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,6 +242,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		431F050B8A88A2C1BA8B5AC9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mxrplugindemo/Pods-mxrplugindemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mxrplugindemo/Pods-mxrplugindemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mxrplugindemo/Pods-mxrplugindemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4A448E314EFCBE543045396B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,7 +441,10 @@
 					"$(PROJECT_DIR)/mxrplugindemo",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/mxrplugindemo/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/mxrplugindemo/mxrpluginKit.framework/Headers";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/mxrplugindemo/mxrpluginKit.framework/Headers",
+				);
 				INFOPLIST_FILE = mxrplugindemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -449,7 +470,10 @@
 					"$(PROJECT_DIR)/mxrplugindemo",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/mxrplugindemo/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/mxrplugindemo/mxrpluginKit.framework/Headers";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/mxrplugindemo/mxrpluginKit.framework/Headers",
+				);
 				INFOPLIST_FILE = mxrplugindemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (

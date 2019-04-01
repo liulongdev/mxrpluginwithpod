@@ -34,6 +34,9 @@
                             <constraint firstItem="p5J-mO-sRf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="PvQ-jc-Trl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tipLabel" destination="p5J-mO-sRf" id="A2r-Pc-iV7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -1,16 +1,48 @@
 PODS:
+  - MAREXT (0.1.6):
+    - MAREXT/ColorArt (= 0.1.6)
+    - MAREXT/Debug (= 0.1.6)
+    - MAREXT/Foundation (= 0.1.6)
+    - MAREXT/MARModel (= 0.1.6)
+    - MAREXT/Quartz (= 0.1.6)
+    - MAREXT/RuntimeOBJ (= 0.1.6)
+    - MAREXT/UIKit (= 0.1.6)
+    - MAREXT/Utility (= 0.1.6)
+  - MAREXT/ColorArt (0.1.6):
+    - MAREXT/UIKit
+  - MAREXT/Debug (0.1.6):
+    - MAREXT/Utility
+  - MAREXT/Foundation (0.1.6):
+    - MAREXT/Utility
+  - MAREXT/MARModel (0.1.6)
+  - MAREXT/Quartz (0.1.6):
+    - MAREXT/Utility
+  - MAREXT/RuntimeOBJ (0.1.6):
+    - MAREXT/MARModel
+  - MAREXT/UIKit (0.1.6):
+    - MAREXT/Foundation
+    - MAREXT/Quartz
+    - MAREXT/Utility
+  - MAREXT/Utility (0.1.6)
   - OpenCV (3.4.2)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - MAREXT (~> 0.1.6)
   - OpenCV (~> 3.4.2)
+  - SVProgressHUD (~> 2.2.5)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - MAREXT
     - OpenCV
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
+  MAREXT: 834c69aab2ce89533dae6831d940c2c55785b2d1
   OpenCV: 452909747854c92e0f59670961ed5131f5286cb5
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: a6fffb749e514b1e620e98c05feab1c612a3f9a1
+PODFILE CHECKSUM: 5f5134bef22391083416e12142145b7a6dab1432
 
 COCOAPODS: 1.7.0.beta.1

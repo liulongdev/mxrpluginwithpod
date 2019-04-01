@@ -9,24 +9,44 @@
 #import "ViewController.h"
 #import <MXRRecognizeController.h>
 #import "AudioPlayer.h"
-
+#import <MARGlobalManager.h>
 //#define USERECOGNIZEDELEGATE
 
 @interface ViewController () <MXRRecognizeControllerDelegate>
 @property (nonatomic, strong) AudioPlayer *player;
+@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tipLabel.text = @"点击扫描";
     _player = [[AudioPlayer alloc] init];
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startRecognize)];
     [self.view addGestureRecognizer:gesture];
+    [self addObserver];
 #ifdef USERECOGNIZEDELEGATE
     [MXRRecognizeController instance].delegate = self;
 #endif
-    
+}
+
+- (void)dealloc
+{
+    [[MXRRecognizeController instance] removeObserver:self forKeyPath:@"isQuerying"];
+}
+
+- (void)addObserver
+{
+    [[MXRRecognizeController instance] addObserver:self forKeyPath:@"isQuerying" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"isQuerying"]) {
+        self.tipLabel.text = [change[@"new"] boolValue] ? @"正在扫描" : @"开始扫描 ";
+    }
+    NSLog(@"J>>>> keyPath : %@， change ： %@", keyPath, change);
 }
 
 - (void)startRecognize
@@ -43,6 +63,10 @@
             if (error) {
                 NSLog(@">>>> block error %@", error);
             } else {
+                if (imgIndex > -1) {
+                    NSString *msg = [NSString stringWithFormat:@"扫描到第%ld页！", (long)(imgIndex + 1)];
+                    ShowSuccessMessage(msg, Duration_Normal);
+                }
                 strongSelf.player.currentIndex = imgIndex;
                 NSLog(@">>>>> block imgIndex : %ld, imgScore: %ld", (long)imgIndex, (long)imgScore);
             }
@@ -55,6 +79,10 @@
 #pragma mark - Delegate
 - (void)recognizeController:(MXRRecognizeController *)recognize queryImgIndex:(NSInteger)imgIndex avgSocre:(NSInteger)score
 {
+    if (imgIndex > -1) {
+        NSString *msg = [NSString stringWithFormat:@"扫描到第%ld页！", (long)(imgIndex + 1)];
+        ShowSuccessMessage(msg, Duration_Normal);
+    }
     NSLog(@">>>>> delegate imgIndex : %ld, imgScore: %ld", (long)imgIndex, (long)score);
     self.player.currentIndex = imgIndex;
 }
