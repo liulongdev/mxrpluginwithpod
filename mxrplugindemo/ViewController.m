@@ -10,7 +10,7 @@
 #import <MXRRecognizeController.h>
 #import "AudioPlayer.h"
 #import <MARGlobalManager.h>
-//#define USERECOGNIZEDELEGATE
+#define USERECOGNIZEDELEGATE
 
 @interface ViewController () <MXRRecognizeControllerDelegate>
 @property (nonatomic, strong) AudioPlayer *player;
@@ -71,6 +71,14 @@
                 NSLog(@">>>>> block imgIndex : %ld, imgScore: %ld", (long)imgIndex, (long)imgScore);
             }
         };
+        
+        [MXRRecognizeController instance].activeCallBack = ^(MXRRecognizeActiveStatus status) {
+            if (status == MXRRecognizeActiveStatusSuccess) {
+                NSLog(@"激活成功");
+            } else if (status == MXRRecognizeActiveStatusManualBack) {
+                NSLog(@"用户手动返回");
+            };
+        };
 #endif
         NSLog(@">>>>> start recognize : %d", result);
     }
@@ -85,6 +93,15 @@
     }
     NSLog(@">>>>> delegate imgIndex : %ld, imgScore: %ld", (long)imgIndex, (long)score);
     self.player.currentIndex = imgIndex;
+}
+
+- (void)recognizeController:(MXRRecognizeController *)recognize activeStatus:(MXRRecognizeActiveStatus)status
+{
+    if (status == MXRRecognizeActiveStatusSuccess) {
+        NSLog(@"激活成功");
+    } else if (status == MXRRecognizeActiveStatusManualBack) {
+        NSLog(@"用户手动返回");
+    };
 }
     
 - (void)recognizeController:(MXRRecognizeController *)recognize didFail:(NSError *)error

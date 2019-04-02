@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/MXRRecognizeController.h</key>
 		<data>
-		vfq3zL2M0iEQD2xFsHQzSYISlq8=
+		qWsQ2ahTEjoSRlQW5yyEwjTdM9w=
 		</data>
 		<key>Headers/mxrpluginKit.h</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		L7KIhDLeMbNkYQeGo0kZugxVNsY=
+		/CQPbdZxRQUMrbYYw/uo27iUzE8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -27,11 +27,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vfq3zL2M0iEQD2xFsHQzSYISlq8=
+			qWsQ2ahTEjoSRlQW5yyEwjTdM9w=
 			</data>
 			<key>hash2</key>
 			<data>
-			cFq8qxuG6KRtjRyp9cSoKsUiwUa4p3ZN5Ka9Oda6nMc=
+			fCedLbeYmRnN8+XBwrKhTW0Q9NXLiesSTy70v0dk7Gk=
 			</data>
 		</dict>
 		<key>Headers/mxrpluginKit.h</key>
