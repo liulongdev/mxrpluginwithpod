@@ -53,10 +53,15 @@ typedef NS_ENUM(NSUInteger, MXRRecognizeActiveStatus) {
  */
 - (void)endRecognize;
 
+///**
+// 返回扫描到的图片索引，以及该图片的得分。 （与delegate只需要任选一种）
+// */
+//@property (nonatomic, copy) void (^ _Nullable queryCallBack)(NSError *error, NSInteger imgIndex, NSInteger imgScore);
+
 /**
  返回扫描到的图片索引，以及该图片的得分。 （与delegate只需要任选一种）
  */
-@property (nonatomic, copy) void (^ _Nullable queryCallBack)(NSError *error, NSInteger imgIndex, NSInteger imgScore);
+@property (nonatomic, copy) void (^ _Nullable queryBooksCallBack)(NSError *error, NSInteger bookFlag, NSInteger imgIndex, NSInteger imgScore);
 
 /**
  返回扫描激活页面的结果（与delegate只需要任选一种）
@@ -74,7 +79,7 @@ typedef NS_ENUM(NSUInteger, MXRRecognizeActiveStatus) {
  @param imgIndex 扫描到的图片索引
  @param score 扫描图片匹配度的得分，得分越高表示越匹配
  */
-- (void)recognizeController:(MXRRecognizeController *)recognize queryImgIndex:(NSInteger)imgIndex avgSocre:(NSInteger)score;
+- (void)recognizeController:(MXRRecognizeController *)recognize bookFlag:(NSInteger)bookFlag queryImgIndex:(NSInteger)imgIndex avgSocre:(NSInteger)score;
 
 /**
  激活扫描页面的代理。

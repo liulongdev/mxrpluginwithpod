@@ -10,7 +10,7 @@
 #import <MXRRecognizeController.h>
 #import "AudioPlayer.h"
 #import <MARGlobalManager.h>
-#define USERECOGNIZEDELEGATE
+//#define USERECOGNIZEDELEGATE
 
 @interface ViewController () <MXRRecognizeControllerDelegate>
 @property (nonatomic, strong) AudioPlayer *player;
@@ -57,17 +57,34 @@
         BOOL result = [[MXRRecognizeController instance] startRecognizeWithKeyWindow:nil error:nil];
 #ifndef USERECOGNIZEDELEGATE
         __weak __typeof(self) weakSelf = self;
-        [MXRRecognizeController instance].queryCallBack = ^(NSError * _Nonnull error, NSInteger imgIndex, NSInteger imgScore) {
+        [MXRRecognizeController instance].queryBooksCallBack = ^(NSError * _Nonnull error, NSInteger bookFlag, NSInteger imgIndex, NSInteger imgScore) {
             __strong __typeof(self) strongSelf = weakSelf;
             if (!strongSelf) return;
             if (error) {
                 NSLog(@">>>> block error %@", error);
             } else {
+                NSString *msg = nil;
                 if (imgIndex > -1) {
-                    NSString *msg = [NSString stringWithFormat:@"扫描到第%ld页！", (long)(imgIndex + 1)];
-                    ShowSuccessMessage(msg, Duration_Normal);
+                    if (imgIndex >= 9) {
+                        // 对具体的书籍进行页码封装
+                        switch (bookFlag) {
+                            case 0:
+                                imgIndex -= 9;
+                                break;
+                            case 1:
+                            default:
+                                imgIndex = (imgIndex - 9) / 3;
+                                break;
+                        }
+                        msg = [NSString stringWithFormat:@"扫描到第%ld本书,第%ld页！", (long)bookFlag, (long)(imgIndex + 1)];
+                    } else {
+                        msg = [NSString stringWithFormat:@"扫描到%ld本书封面", (long)bookFlag];
+                    }
+                    if (msg) {
+                        ShowSuccessMessage(msg, Duration_Normal);
+                    }
                 }
-                strongSelf.player.currentIndex = imgIndex;
+                //                strongSelf.player.currentIndex = imgIndex;
                 NSLog(@">>>>> block imgIndex : %ld, imgScore: %ld", (long)imgIndex, (long)imgScore);
             }
         };
@@ -92,7 +109,7 @@
         ShowSuccessMessage(msg, Duration_Normal);
     }
     NSLog(@">>>>> delegate imgIndex : %ld, imgScore: %ld", (long)imgIndex, (long)score);
-    self.player.currentIndex = imgIndex;
+//    self.player.currentIndex = imgIndex;
 }
 
 - (void)recognizeController:(MXRRecognizeController *)recognize activeStatus:(MXRRecognizeActiveStatus)status
