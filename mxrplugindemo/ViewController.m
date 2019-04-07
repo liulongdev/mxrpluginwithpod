@@ -10,17 +10,22 @@
 #import <MXRRecognizeController.h>
 #import "AudioPlayer.h"
 #import <MARGlobalManager.h>
+#import <NSObject+MAREX.h>
 //#define USERECOGNIZEDELEGATE
 
 @interface ViewController () <MXRRecognizeControllerDelegate>
 @property (nonatomic, strong) AudioPlayer *player;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *pageTipLabel;
+@property (nonatomic, copy) MARCancelBlockToken blocktoken;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pageTipLabel.text = nil;
     self.tipLabel.text = @"点击扫描";
     _player = [[AudioPlayer alloc] init];
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startRecognize)];
@@ -34,6 +39,23 @@
 - (void)dealloc
 {
     [[MXRRecognizeController instance] removeObserver:self forKeyPath:@"isQuerying"];
+}
+
+- (void)setPageValue:(NSInteger)pageIndex
+{
+    if (pageIndex > -1) {
+        self.pageTipLabel.text = [NSString stringWithFormat:@"%ld", (long)pageIndex];
+        if (_blocktoken) {
+            [NSObject mar_cancelBlock:_blocktoken];
+            _blocktoken = NULL;
+        }
+        __weak __typeof(self) weakSelf = self;
+        self.blocktoken = [self mar_gcdPerformAfterDelay:2 usingBlock:^(id  _Nonnull objSelf) {
+            __strong __typeof(self) strongSelf = weakSelf;
+            if (!strongSelf) return;
+            strongSelf.pageTipLabel.text = nil;
+        }];
+    }
 }
 
 - (void)addObserver
@@ -72,6 +94,13 @@
                                 imgIndex -= 9;
                                 break;
                             case 1:
+                            case 3:
+                                if (imgIndex <= 11) {
+                                    imgIndex = 0;
+                                } else {
+                                    imgIndex = (imgIndex -11) / 3;
+                                }
+                                break;
                             default:
                                 imgIndex = (imgIndex - 9) / 3;
                                 break;
@@ -81,6 +110,7 @@
                         msg = [NSString stringWithFormat:@"扫描到%ld本书封面", (long)bookFlag];
                     }
                     if (msg) {
+                        [self setPageValue:imgIndex + 1];
                         ShowSuccessMessage(msg, Duration_Normal);
                     }
                 }

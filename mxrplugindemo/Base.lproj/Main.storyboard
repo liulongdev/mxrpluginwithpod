@@ -43,15 +43,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb4-K9-o5y">
+                                <rect key="frame" x="89.5" y="74" width="196" height="179.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="150"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="p5J-mO-sRf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="52f-xF-WxL"/>
+                            <constraint firstItem="Vb4-K9-o5y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HfT-rA-WjI"/>
+                            <constraint firstItem="Vb4-K9-o5y" firstAttribute="top" secondItem="mAP-iC-iJo" secondAttribute="bottom" constant="10" id="Pqn-5l-gA6"/>
                             <constraint firstItem="p5J-mO-sRf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="PvQ-jc-Trl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="r58-bo-17P"/>
                     <connections>
+                        <outlet property="pageTipLabel" destination="Vb4-K9-o5y" id="maW-3t-24W"/>
                         <outlet property="tipLabel" destination="p5J-mO-sRf" id="A2r-Pc-iV7"/>
                     </connections>
                 </viewController>
