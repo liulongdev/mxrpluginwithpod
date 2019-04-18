@@ -79,43 +79,18 @@
         BOOL result = [[MXRRecognizeController instance] startRecognizeWithKeyWindow:nil error:nil];
 #ifndef USERECOGNIZEDELEGATE
         __weak __typeof(self) weakSelf = self;
-        [MXRRecognizeController instance].queryBooksCallBack = ^(NSError * _Nonnull error, NSInteger bookFlag, NSInteger imgIndex, NSInteger imgScore) {
+        [MXRRecognizeController instance].queryBookRecogResult = ^(NSError *error, MXRBookRecogResult *bookRecogResult) {
             __strong __typeof(self) strongSelf = weakSelf;
             if (!strongSelf) return;
             if (error) {
                 NSLog(@">>>> block error %@", error);
             } else {
-                NSString *msg = nil;
-                if (imgIndex > -1) {
-                    if (imgIndex >= 9) {
-                        // 对具体的书籍进行页码封装
-                        switch (bookFlag) {
-                            case 0:
-                                imgIndex -= 9;
-                                break;
-                            case 1:
-                            case 3:
-                                if (imgIndex <= 11) {
-                                    imgIndex = 0;
-                                } else {
-                                    imgIndex = (imgIndex -11) / 3;
-                                }
-                                break;
-                            default:
-                                imgIndex = (imgIndex - 9) / 3;
-                                break;
-                        }
-                        msg = [NSString stringWithFormat:@"扫描到第%ld本书,第%ld页！", (long)bookFlag, (long)(imgIndex + 1)];
-                    } else {
-                        msg = [NSString stringWithFormat:@"扫描到%ld本书封面", (long)bookFlag];
-                    }
-                    if (msg) {
-                        [self setPageValue:imgIndex + 1];
-                        ShowSuccessMessage(msg, Duration_Normal);
-                    }
+                NSString *msg = [NSString stringWithFormat:@"扫描到第%ld本书,第%ld页 ", (long)bookRecogResult.bookFlag, (long)bookRecogResult.bookPageIndex];
+                if (bookRecogResult.bookPagePart > -1) {
+                    msg = [msg stringByAppendingFormat:@"第%ld部分", (long)bookRecogResult.bookPagePart];
                 }
-                //                strongSelf.player.currentIndex = imgIndex;
-                NSLog(@">>>>> block imgIndex : %ld, imgScore: %ld", (long)imgIndex, (long)imgScore);
+                ShowSuccessMessage(msg, Duration_Normal);
+                [strongSelf setPageValue:bookRecogResult.bookPageIndex];
             }
         };
         
