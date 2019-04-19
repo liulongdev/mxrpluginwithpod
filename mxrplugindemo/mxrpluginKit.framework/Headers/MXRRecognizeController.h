@@ -59,8 +59,9 @@ typedef NS_ENUM(NSUInteger, MXRRecognizeActiveStatus) {
 
 /**
  返回扫描到的图片索引，以及该图片的得分。 （与delegate只需要任选一种）
+ note：以后将弃用
  */
-@property (nonatomic, copy) void (^queryBooksCallBack)(NSError *error, NSInteger bookFlag, NSInteger imgIndex, NSInteger imgScore);
+@property (nonatomic, copy) void (^queryBooksCallBack)(NSError *error, NSInteger bookFlag, NSInteger imgIndex, NSInteger imgScore) __deprecated_msg("use queryBookRecogResult");
 
 /**
  返回扫描到的图片索引，以及该图片的得分。 （与delegate只需要任选一种）
@@ -75,15 +76,16 @@ typedef NS_ENUM(NSUInteger, MXRRecognizeActiveStatus) {
 @end
 
 @protocol MXRRecognizeControllerDelegate <NSObject>
-
+@optional
 /**
  扫描到匹配图片的代理
  
  @param recognize MXRRecognizeController对象
  @param imgIndex 扫描到的图片索引
  @param score 扫描图片匹配度的得分，得分越高表示越匹配
+ note: 以后将弃用
  */
-- (void)recognizeController:(MXRRecognizeController *)recognize bookFlag:(NSInteger)bookFlag queryImgIndex:(NSInteger)imgIndex avgSocre:(NSInteger)score;
+- (void)recognizeController:(MXRRecognizeController *)recognize bookFlag:(NSInteger)bookFlag queryImgIndex:(NSInteger)imgIndex avgSocre:(NSInteger)score __deprecated_msg("use recognizeController:bookRecogResult:");
 
 /**
  扫描到匹配图片的代理
