@@ -41,23 +41,6 @@
     [[MXRRecognizeController instance] removeObserver:self forKeyPath:@"isQuerying"];
 }
 
-- (void)setPageValue:(NSInteger)pageIndex
-{
-    if (pageIndex > -1) {
-        self.pageTipLabel.text = [NSString stringWithFormat:@"%ld", (long)pageIndex];
-        if (_blocktoken) {
-            [NSObject mar_cancelBlock:_blocktoken];
-            _blocktoken = NULL;
-        }
-        __weak __typeof(self) weakSelf = self;
-        self.blocktoken = [self mar_gcdPerformAfterDelay:2 usingBlock:^(id  _Nonnull objSelf) {
-            __strong __typeof(self) strongSelf = weakSelf;
-            if (!strongSelf) return;
-            strongSelf.pageTipLabel.text = nil;
-        }];
-    }
-}
-
 - (void)addObserver
 {
     [[MXRRecognizeController instance] addObserver:self forKeyPath:@"isQuerying" options:NSKeyValueObservingOptionNew context:nil];
@@ -77,50 +60,62 @@
         [[MXRRecognizeController instance] endRecognize];
     } else {
         BOOL result = [[MXRRecognizeController instance] startRecognizeWithKeyWindow:nil error:nil];
-#ifndef USERECOGNIZEDELEGATE
+        
+        /// 通知不建议使用，只是调试使用的， 正式的SDK不会通知。
         __weak __typeof(self) weakSelf = self;
+        [[NSNotificationCenter defaultCenter] addObserverForName:@"MXRQUERYCOVER" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+            [weakSelf showTitle:@"正在扫描封面"];
+        }];
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:@"MXRQUERYBOOK" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+            [weakSelf showTitle:@"正在扫描marker"];
+        }];
+        
+#ifndef USERECOGNIZEDELEGATE
         [MXRRecognizeController instance].queryBookRecogResult = ^(NSError *error, MXRBookRecogResult *bookRecogResult) {
             __strong __typeof(self) strongSelf = weakSelf;
             if (!strongSelf) return;
             if (error) {
                 NSLog(@">>>> block error %@", error);
             } else {
-                NSString *msg = [NSString stringWithFormat:@"扫描到第%ld本书,第%ld页 ", (long)bookRecogResult.bookFlag, (long)bookRecogResult.bookPageIndex];
-                if (bookRecogResult.bookPagePart > -1) {
-                    msg = [msg stringByAppendingFormat:@"第%ld部分", (long)bookRecogResult.bookPagePart];
-                }
-                ShowSuccessMessage(msg, Duration_Normal);
-                [strongSelf setPageValue:bookRecogResult.bookPageIndex];
+                [strongSelf showBookRecogResult:bookRecogResult];
             }
         };
         
-        [MXRRecognizeController instance].activeCallBack = ^(MXRRecognizeActiveStatus status) {
+        [MXRRecognizeController instance].activeDeviceCallBack = ^(MXRRecognizeActiveStatus status, NSString *deviceId, NSString *code) {
             if (status == MXRRecognizeActiveStatusSuccess) {
-                NSLog(@"激活成功");
+                NSLog(@"激活成功, deviceId: %@, code : %@", deviceId, code);
             } else if (status == MXRRecognizeActiveStatusManualBack) {
                 NSLog(@"用户手动返回");
             };
         };
+        
+        [MXRRecognizeController instance].loadBookProgress = ^(NSError *error, NSString *bookGUID, CGFloat progress) {
+            __strong __typeof(self) strongSelf = weakSelf;
+            if (!strongSelf) return;
+            if (error) {
+                NSLog(@">>>>> load bookGUID<%@> error : %@", bookGUID, error);
+            } else {
+                NSString *title = [NSString stringWithFormat:@"下载图书进度：%.2f%%", progress * 100];
+                strongSelf.title = title;
+            }
+        };
+        
 #endif
         NSLog(@">>>>> start recognize : %d", result);
     }
 }
 
 #pragma mark - Delegate
-- (void)recognizeController:(MXRRecognizeController *)recognize queryImgIndex:(NSInteger)imgIndex avgSocre:(NSInteger)score
+- (void)recognizeController:(MXRRecognizeController *)recognize bookRecogResult:(MXRBookRecogResult *)bookRecogResult
 {
-    if (imgIndex > -1) {
-        NSString *msg = [NSString stringWithFormat:@"扫描到第%ld页！", (long)(imgIndex + 1)];
-        ShowSuccessMessage(msg, Duration_Normal);
-    }
-    NSLog(@">>>>> delegate imgIndex : %ld, imgScore: %ld", (long)imgIndex, (long)score);
-//    self.player.currentIndex = imgIndex;
+    [self showBookRecogResult:bookRecogResult];
 }
 
-- (void)recognizeController:(MXRRecognizeController *)recognize activeStatus:(MXRRecognizeActiveStatus)status
+- (void)recognizeController:(MXRRecognizeController *)recognize activeStatus:(MXRRecognizeActiveStatus)status deviceId:(NSString *)deviceId code:(NSString *)code
 {
     if (status == MXRRecognizeActiveStatusSuccess) {
-        NSLog(@"激活成功");
+        NSLog(@"激活成功, deviceId: %@, code : %@", deviceId, code);
     } else if (status == MXRRecognizeActiveStatusManualBack) {
         NSLog(@"用户手动返回");
     };
@@ -130,5 +125,59 @@
 {
     NSLog(@">>> delegate error : %@", error);
 }
+
+///
+- (void)showTitle:(NSString *)title
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hiddenTitle) object:nil];
+    [self performSelector:@selector(hiddenTitle) withObject:nil afterDelay:2];
+    self.title = title;
+}
+
+- (void)showBookRecogResult:(MXRBookRecogResult *)result
+{
+    [self _showMsg:[NSString stringWithFormat:@"%@\n%@,url:%@", result.bookGUID, result.pageName, result.path]];
+}
+
+- (void)_showMsg:(NSString *)msg
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hiddenTipLabel) object:nil];
+    [self performSelector:@selector(hiddenTipLabel) withObject:nil afterDelay:2];
+    self.pageTipLabel.text = msg;
+    static int count = 0;
+    count ++;
+    UIColor *color = nil;
+    switch (count % 3) {
+        case 0:
+            color = [UIColor redColor];
+            break;
+        case 1 :
+            color = [UIColor greenColor];
+            break;
+        case 2:
+            color = [UIColor blueColor];
+            break;
+        default:
+            color = [UIColor yellowColor];
+            break;
+    }
+    self.pageTipLabel.textColor = color;
+}
+
+- (void)showBookFlag:(NSInteger)bookFlag imgIndex:(NSInteger)imgIndex imgScore:(NSInteger)imgScore
+{
+    [self _showMsg:[NSString stringWithFormat:@"%ld,%ld,%ld", (long)bookFlag, (long)imgIndex, (long)imgScore]];
+}
+
+- (void)hiddenTipLabel
+{
+    self.pageTipLabel.text = nil;
+}
+
+- (void)hiddenTitle
+{
+    self.title = nil;
+}
+
 
 @end

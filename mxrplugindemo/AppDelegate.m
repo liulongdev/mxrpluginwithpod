@@ -16,7 +16,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [MXRRecognizeController registerApp];
+//    [MXRRecognizeController registerApp];
+    [MXRRecognizeController registerWithAppId:@"Lq1Ocl8pB6bUHxaUaG5LI28URoPBaKnS"];
     // Override point for customization after application launch.
     return YES;
 }

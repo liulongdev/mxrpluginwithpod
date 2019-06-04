@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/MXRRecognizeController.h</key>
 		<data>
-		/XgvkqD7GSVsD2GGLvxw4smDEWg=
+		IriR67vhbkNlCz+d6WxVQTkKV4g=
 		</data>
 		<key>Headers/mxrpluginKit.h</key>
 		<data>
@@ -14,11 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		VJfrUUHkvbDPdQwg9WGyER+RXU8=
+		YQ5o7U1kJFb4XUnzNzy5xzB8tKE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		quzUruDhu3L48h5z1vUiWfYzwXI=
+		</data>
+		<key>readme_FMDB.rtf</key>
+		<data>
+		BPxHy+acQ7a0UQ0tjH0GxBaW3as=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -27,11 +31,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/XgvkqD7GSVsD2GGLvxw4smDEWg=
+			IriR67vhbkNlCz+d6WxVQTkKV4g=
 			</data>
 			<key>hash2</key>
 			<data>
-			iZGfsf++/5fVvQ2IAsMxkMLXLgkqWDv7HExZF6s5luU=
+			QJB1XLy32aJjBPT+RDq4H/hPB8zX64kpglJKJ+t72as=
 			</data>
 		</dict>
 		<key>Headers/mxrpluginKit.h</key>
@@ -54,6 +58,17 @@
 			<key>hash2</key>
 			<data>
 			bsXQSBwXuaY83ExqHCtjtObE2Lyt/n2ZsSXOdwxK6h4=
+			</data>
+		</dict>
+		<key>readme_FMDB.rtf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			BPxHy+acQ7a0UQ0tjH0GxBaW3as=
+			</data>
+			<key>hash2</key>
+			<data>
+			MH653RXlfH7a3C/vR4Wtok36OelwQZZoz6dqNVoY5k0=
 			</data>
 		</dict>
 	</dict>

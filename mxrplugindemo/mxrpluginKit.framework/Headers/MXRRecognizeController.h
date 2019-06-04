@@ -16,10 +16,26 @@ typedef NS_ENUM(NSUInteger, MXRRecognizeActiveStatus) {
 };
 
 @interface MXRBookRecogResult : NSObject
-@property (nonatomic, assign, readonly) NSInteger bookFlag;       // 表示第几本书，索引从0开始
-@property (nonatomic, assign, readonly) NSInteger bookPageIndex;  // 表示页面，封面为0，如有扉页为1，第一页为2，这样依次递增。
-@property (nonatomic, assign, readonly) NSInteger bookPagePart;   // 一整页的那一块，主要指三等分的书籍，左边为0，中间为1，右边为2， 默认-1
+@property (nonatomic, assign, readonly) NSInteger bookFlag __deprecated_msg("unavailable");       // 表示第几本书，索引从0开始
+@property (nonatomic, assign, readonly) NSInteger bookPagePart __deprecated_msg("unavailable");   // 一整页的那一块，主要指三等分的书籍，左边为0，中间为1，右边为2， 默认-1
+
+@property (nonatomic, assign, readonly) NSInteger bookPageIndex __deprecated_msg("unavailable");  // 表示页面，由编辑器编辑所得
+@property (nonatomic, strong, readonly) NSString *pageName; // 表示marker页的名称
+@property (nonatomic, assign, readonly) BOOL isCover;  // 表示是否扫描到封面, 扫描到封面值是YES，否则NO
+@property (nonatomic, strong, readonly) NSString *path;         // 对应的path
+@property (nonatomic, assign, readonly) NSString *bookGUID;     // 表示图书标识
 @end
+
+typedef NS_OPTIONS(NSInteger, MXRRecognizeStatus) {
+    MXREncodingTypeMask = 0xFFFF,
+    MXRRecognizeStatusNone = 0,
+    MXRRecognizeStatusPreparingMask = 0x000F, // 准备
+    MXRRecognizeStatusPreparingCover = 0x0001,
+    MXRRecognizeStatusPreparingBookMarker = 0x0002,
+    MXRRecognizeStatusQueryingMask = 0x00F0,    // 识别
+    MXRRecognizeStatusQueryingCover = 0x0010,
+    MXRRecognizeStatusQueryingMarker = 0x0020,
+};
 
 @interface MXRRecognizeController : NSObject
 
@@ -29,14 +45,24 @@ typedef NS_ENUM(NSUInteger, MXRRecognizeActiveStatus) {
 + (instancetype)instance;
 
 /**
+ 在AppDelegate启动的时候调用,即application:didFinishLaunchingWithOptions:中调用，以后版本会删除。
+ */
++ (void)registerApp __deprecated_msg("use registerWithAppId:");
+
+/**
  在AppDelegate启动的时候调用,即application:didFinishLaunchingWithOptions:中调用
  */
-+ (void)registerApp;
++ (void)registerWithAppId:(NSString *)appId;
 
 /**
  是否正在扫描的标志
  */
 @property (nonatomic, readonly) BOOL isQuerying;
+
+/**
+ 扫描图书的状态
+ */
+@property (nonatomic, readonly) MXRRecognizeStatus status;
 
 /**
  代理
@@ -69,9 +95,25 @@ typedef NS_ENUM(NSUInteger, MXRRecognizeActiveStatus) {
 @property (nonatomic, copy) void (^queryBookRecogResult)(NSError *error, MXRBookRecogResult *bookRecogResult);
 
 /**
+ 下载图书封面的进度
+ */
+@property (nonatomic, copy) void (^loadBookCoverProgress)(BOOL isFinished, CGFloat progress);
+
+/**
+ 加载图书训练文件。
+ 先从本地寻找加载，如果没有，则下载后加载。
+ */
+@property (nonatomic, copy) void (^loadBookProgress)(NSError *error, NSString *bookGUID, CGFloat progress);
+
+/**
+ 返回扫描激活页面的结果（与delegate只需要任选一种） 下个版本将会删除此方法
+ */
+@property (nonatomic, copy) void (^activeCallBack)(MXRRecognizeActiveStatus status) __deprecated_msg("use activeDeviceCallBack");
+
+/**
  返回扫描激活页面的结果（与delegate只需要任选一种）
  */
-@property (nonatomic, copy) void (^activeCallBack)(MXRRecognizeActiveStatus status);
+@property (nonatomic, copy) void (^activeDeviceCallBack)(MXRRecognizeActiveStatus status, NSString *deviceId,  NSString *code);
 
 @end
 
@@ -83,7 +125,7 @@ typedef NS_ENUM(NSUInteger, MXRRecognizeActiveStatus) {
  @param recognize MXRRecognizeController对象
  @param imgIndex 扫描到的图片索引
  @param score 扫描图片匹配度的得分，得分越高表示越匹配
- note: 以后将弃用
+ note: 下个版本将会删除此方法
  */
 - (void)recognizeController:(MXRRecognizeController *)recognize bookFlag:(NSInteger)bookFlag queryImgIndex:(NSInteger)imgIndex avgSocre:(NSInteger)score __deprecated_msg("use recognizeController:bookRecogResult:");
 
@@ -103,8 +145,21 @@ typedef NS_ENUM(NSUInteger, MXRRecognizeActiveStatus) {
  
  @param recognize MXRRecognizeController对象
  @param status MXRRecognizeActiveStatus
+ note：下个版本将会删除此方法
  */
-- (void)recognizeController:(MXRRecognizeController *)recognize activeStatus:(MXRRecognizeActiveStatus)status;
+- (void)recognizeController:(MXRRecognizeController *)recognize activeStatus:(MXRRecognizeActiveStatus)status __deprecated_msg("use recognizeController:activeStatus:deviceId:code:");
+
+/**
+ 激活扫描页面的代理。
+ MXRRecognizeActiveStatusSuccess表示扫描成功。
+ MXRRecognizeActiveStatusManualBack表示用户手动点击返回按钮.
+ 
+ @param recognize MXRRecognizeController对象
+ @param status MXRRecognizeActiveStatus
+ @param deviceId 设备标识
+ @param code 激活码
+ */
+- (void)recognizeController:(MXRRecognizeController *)recognize activeStatus:(MXRRecognizeActiveStatus)status deviceId:(NSString *)deviceId code:(NSString *)code;
 
 /**
  扫描错误的代理
